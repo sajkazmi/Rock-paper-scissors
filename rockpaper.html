@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock paper scissor</title>
+    <link rel="stylesheet" href="rockpaper.css">
+</head>
+<body>
+    <nav>
+        <h2 id="title">
+            Rock Paper Scissor
+        </h2>
+    </nav>
+    <div class="labels">
+        <h2 id="you-label">
+            You
+        </h2>
+        <h2 id='comp-label'>
+            Computer
+        </h2>
+    </div>
+    <div class="container">
+        <div class="turn" id="you">
+
+        </div>
+        <div class="turn" id="comp">
+
+        </div>
+    </div>
+    <div class="below">
+        <h3>
+            select one:
+        </h3>
+        <div class="btns">
+            <img src="rock.jfif" id="rock">
+            <img src="paper.jfif" id="paper">
+            <img src="scissors.jfif" id="scissors">
+        </div>
+        
+    </div>
+    <div class="btns-comp">
+        <img src="rock.jfif" id="rock2" style="display: none;">
+        <img src="paper.jfif" id="paper2" style="display: none;">
+        <img src="scissors.jfif" id="scissors2" style="display: none;">
+    </div>
+    <script>
+        // button elements
+        let rock = document.getElementById('rock');
+        let paper = document.getElementById('paper');
+        let scissors = document.getElementById('scissors');
+        let rock2 = document.getElementById('rock2');
+        let paper2 = document.getElementById('paper2');
+        let scissors2 = document.getElementById('scissors2');
+        // show elements
+        let you_box = document.getElementById('you');
+        let comp_box = document.getElementById('comp');
+        // btn functionalities
+        rock.addEventListener('click', function(){
+            you_box.appendChild(rock);
+            if(paper in you_box.children){
+                you_box.removeChild(paper);
+
+            }
+            if(scissors in you_box.children){
+                you_box.removeChild(scissors);
+
+            }
+            document.getElementsByClassName('btns')[0].appendChild(paper);
+            document.getElementsByClassName('btns')[0].appendChild(scissors);
+
+            let randy_orton = Math.floor(Math.random() * 3);
+            if(randy_orton == 0){
+                rock2.style.display = 'block';
+                comp_box.appendChild(rock2);
+            }
+            else if(randy_orton == 1){
+                paper2.style.display = 'block';
+                comp_box.appendChild(paper2);
+            }
+            else{
+                scissors2.style.display = 'block';
+                comp_box.appendChild(scissors2);
+            }
+
+
+            if(you_box.contains(rock) && comp_box.contains(rock2)){
+                setTimeout(function(){ alert("Tied"); window.location.reload(true);}, 300);
+            }
+            else if(you_box.contains(rock) && comp_box.contains(scissors2)){
+                setTimeout(function(){ alert("you win"); window.location.reload(true);}, 300);
+            }
+            else{
+                setTimeout(function(){ alert("you lose"); window.location.reload(true); }, 300);
+            } 
+        })
+        paper.addEventListener('click', function(){
+            you_box.appendChild(paper);
+            if(scissors in you_box.children){
+                you_box.removeChild(scissors);
+
+            }
+            if(rock in you_box.children){
+                you_box.removeChild(rock);
+
+            }
+            document.getElementsByClassName('btns')[0].appendChild(rock);
+            document.getElementsByClassName('btns')[0].appendChild(scissors);
+
+            let randy_orton = Math.floor(Math.random() * 3);
+            if(randy_orton == 0){
+                rock2.style.display = 'block';
+                comp_box.appendChild(rock2);
+            }
+            else if(randy_orton == 1){
+                paper2.style.display = 'block';
+                comp_box.appendChild(paper2);
+            }
+            else{
+                scissors2.style.display = 'block';
+                comp_box.appendChild(scissors2);
+            }
+
+
+            if(you_box.contains(paper) && comp_box.contains(paper2)){
+                setTimeout(function(){ alert("Tied"); window.location.reload(true);}, 300);
+            }
+            else if(you_box.contains(paper) && comp_box.contains(rock2)){
+                setTimeout(function(){ alert("you win"); window.location.reload(true);}, 300);
+            }
+            else{
+                setTimeout(function(){ alert("you lose"); window.location.reload(true); }, 300);
+            } 
+        })
+        scissors.addEventListener('click', function(){
+            you_box.appendChild(scissors);
+            if(rock in you_box.children){
+                you_box.removeChild(rock);
+
+            }            
+            if(paper in you_box.children){
+                you_box.removeChild(paper);
+
+            }
+            document.getElementsByClassName('btns')[0].appendChild(rock);
+            document.getElementsByClassName('btns')[0].appendChild(paper);
+
+            let randy_orton = Math.floor(Math.random() * 3);
+            if(randy_orton == 0){
+                rock2.style.display = 'block';
+                comp_box.appendChild(rock2);
+            }
+            else if(randy_orton == 1){
+                paper2.style.display = 'block';
+                comp_box.appendChild(paper2);
+            }
+            else{
+                scissors2.style.display = 'block';
+                comp_box.appendChild(scissors2);
+            }
+
+
+            if(you_box.contains(scissors) && comp_box.contains(scissors2)){
+                setTimeout(function(){ alert("Tied"); window.location.reload(true);}, 300);
+            }
+            else if(you_box.contains(scissors) && comp_box.contains(paper2)){
+                setTimeout(function(){ alert("you win"); window.location.reload(true);}, 300);
+            }
+            else{
+                setTimeout(function(){ alert("you lose"); window.location.reload(true); }, 300);
+            } 
+        })
+        
+    </script>
+</body>
+</html>
